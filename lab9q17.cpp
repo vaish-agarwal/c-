@@ -12,8 +12,8 @@ Strstr
 #include <iostream>
 
 using namespace std;
-int strlen(char*);
 
+////**********strdsp*********
 void strdsp(char *str){
 	for(int i = 0 ; i<strlen(str);i++){
 		cout<<*(str+i);	
@@ -21,41 +21,48 @@ void strdsp(char *str){
 	cout<<endl;
 }
 
-void strcpy(char *s1,char *s2){
-	for (int i =0; i<strlen(s1);i++){
-		*(s2+i)=*(s1+i);	
+//**********strcpy*********
+void strcpy(char *a,char *b){
+	for (int i =0; i<strlen(a);i++){
+		*(b+i)=*(a+i);	
 	}
 }
 
-void strcat(char *s1,char *s2, char *s3){
+//**********strcat*********
+void strcat(char *a,char *b, char *c){
 	int i;	
-	for (i =0; i<strlen(s1)+strlen(s2);i++){
-		if(i<strlen(s1))
-			*(s3+i)=*(s1+i);
+	for (i =0; i<strlen(a)+strlen(b);i++){
+		if(i<strlen(a))
+			*(c+i)=*(a+i);
 		else
-			*(s3+i)=*(s2+i-strlen(s1));
+			*(c+i)=*(b+i-strlen(a));
 	}
-	*(s3+i)='\0';
+	*(c+i)='\0';
 }
 
-bool strcmp(char *s1,char*s2){
-	bool b = true; 	
-	for (int i =0; i<strlen(s1);i++){
-		if(*(s1+i)!=*(s2+i)){
-			b=false;
+//**********strcmp*********
+bool strcmp(char *a,char*b){
+	bool r= true; 	
+	for (int i =0; i<strlen(a);i++){
+		if(*(a+i)!=*(b+i)){
+			r=false;
 			break;		
 		}	
 	}
 	return b;
 }
+
+//**********strlen*********
 int strlen(char* str){
 	int i =0;
 	while(*(str+i)!='\0'){
 		i++;	
 	}
 	return i;
-}
+}  
 
+
+//**********strchr******
 char* strchr(char *str, char c){
 	int i = 0;
 	while(*(str+i)!=c and i < strlen(str))
@@ -63,6 +70,8 @@ char* strchr(char *str, char c){
 	return str+i;
 		
 }
+
+//**********strstr******
 char* strstr(char *str, char *s){
 	int i =0;
 	int n1 = strlen(str);
@@ -84,20 +93,23 @@ char* strstr(char *str, char *s){
 }
 
 int main(){
-	char s1 []="Hello";
-	int n1 = strlen(s1);
-	char s2 [n1];
-	strcpy(s1,s2);
-	strdsp(s1);
-	strdsp(s2);
-	char s3 [n1+n1];
-	strcat(s1,s2,s3);
-	strdsp(s3);
-	cout << strcmp(s1,s2)<<endl;
-	cout << strcmp(s1,"hello")<<endl;
-	cout << strlen(s1)<<endl;
-	cout << *strchr(s2,'l')<<endl;
-	cout << *strstr(s1,"el")<<endl;
+	//declare variables
+	char a []="Hello";
+	int n1 = strlen(a);
+	char a[n1];
+	//call functions to assign values
+	strcpy(a,b);
+	strdsp(a);
+	strdsp(b);
+	char c [n1+n1];
+	strcat(a,b,c);
+	strdsp(c);
+	//call and display result
+	cout << strcmp(a,b)<<endl;
+	cout << strcmp(a,"hello")<<endl;
+	cout << strlen(a)<<endl;
+	cout << *strchr(b,'l')<<endl;
+	cout << *strstr(a,"el")<<endl;
 	
 
 	return 0;
