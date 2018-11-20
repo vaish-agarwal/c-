@@ -8,7 +8,7 @@ Q2)
  D. *p = 75;
 
 Q3)
- cannot convert ‘char*’ to ‘double*’ in initialization
+ char pointer cannot be converted to double pointer
 
 Q4)
 
@@ -31,41 +31,41 @@ Q5)
 char s[10] = "abcde";
 char* cptr;
 
-
-int flage=0;
-for(int i=9;i<=0;i--)
+//write your code here
+int flag=0;
+for(int a=6;a<=0;a--)
 {
-	if(flage)
-	cout<<s[i];
+	if(flag)
+	cout<<s[a];
 	else
-		if(s[i]=='\0')
-			flage=1;
+		if(s[a]=='\0')
+			flag=1;
 }
 
 Q6)
 
 int countEven(int* arr,int size)
 {
-	int count=0;
-	for(int i=0;i<size;i++)
+	int a =0;
+	for(int i=0; i<=(size - 1); i++){
 	if(arr[i]%2==0)
-	count++;
-	
-	return count;
+	a++;
+	}
+	return a;
 }
 
 Q7)
 
 double* maximum(double* a, int size)
 {
-	doubel p*=NULL;
+	double *b=NULL;
 	if(size==0)
-	return p;
-	p*=a[0];
+	return b;
+	*b=a[0];
 	for(int i=0;i<size;i++)
-	if(a[i]<p*)
-	P*=a[i];
-	return p;
+	if(a[i]<*b)
+	*b=a[i];
+	return b;
 }
 
 Q8)
@@ -109,17 +109,17 @@ int main()
 
 void revtString(char* ptr)
 {
-	int count=0;
-	while(ch*!='\0')
+	int a=0;
+	while(*ptr!='\0')
 	{
-		ch++;
-		count++;
+		ptr++;
+		a++;
 	}
-	char p;
-	for(int i=0;i<count/2;i++)
+	char b;
+	for(int i=0;i<a/2;i++)
 	{
-		p=ptr[i];
-		ptr[i]=ptr[count-1-i];
-		ptr[count-1-i]=p;
+		b=ptr[i];
+		ptr[i]=ptr[a-1-i];
+		ptr[a-1-i]=b;
 	}
 }
